@@ -6,7 +6,11 @@ authors = ["Patrick Nadeau <patrick.a.nadeau@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
+opencv-python = "^4.9.0.80"
+ipykernel = "^6.29.0"
+matplotlib = "^3.8.2"
+scikit-image = "^0.22.0"
 
 
 [build-system]
