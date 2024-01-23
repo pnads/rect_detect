@@ -1,9 +1,8 @@
-from fastapi import FastAPI, UploadFile, File
+
 import numpy as np
 import cv2
-from fastapi.responses import JSONResponse
 
-app = FastAPI()
+
 
 def extract_rect_coords(img):
     # Convert the image to grayscale
@@ -23,19 +22,28 @@ def extract_rect_coords(img):
         approx = cv2.approxPolyDP(cnt, 0.04 * cv2.arcLength(cnt, True), True)
         if len(approx) == 4 and hierarchy[0,i,-1] != -1:
             # If the number of vertex points in the approximate contour is 4, it's a rectangle
+            # x, y, w, h = cv2.boundingRect(cnt)
+            # Draw the rectangle
+            # cv2.rectangle(img, (x, y), (x + w, y + h), (0, 255, 0), 2)
+            # Get the coordinates of the corners
             corners = np.intp(approx)
+            # corner_dict[str(count)] = corners
             corner_dict = {
                 "id": count,
                 "coordinates": corners.reshape(4,2).tolist()
             }
             corner_list.append(corner_dict)
             count += 1
+            # for corner in corners:
+            #     x, y = corner.ravel()
+            #     cv2.circle(img, (x, y), 5, (0, 0, 255), -1)
     return corner_list
 
-@app.post("/extract-rect-coords")
-async def extract_rect_coordinates(file: UploadFile = File(...)):
-    contents = await file.read()
-    nparr = np.frombuffer(contents, np.uint8)
-    img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
-    corner_coordinates = extract_rect_coords(img)
-    return JSONResponse(content=corner_coordinates)
+if __name__ == "__main__":
+    image = cv2.imread("images/simple.png")
+    corners = extract_rect_coords(image)
+    print(corners)
+
+    image = cv2.imread("images/rotated.png")
+    corners = extract_rect_coords(image)
+    print(corners)
