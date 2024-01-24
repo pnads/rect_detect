@@ -1,6 +1,9 @@
 # RectDetect
 
-Running live in Google Cloud [here](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)!
+Running live in Google Cloud:
+
+- [Streamlit UI](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)
+- [API](https://rect-detect-api-zjjnoqowna-nn.a.run.app/docs)
 
 ## Setup and Run
 
@@ -18,7 +21,7 @@ Running live in Google Cloud [here](https://rect-detect-ui-zjjnoqowna-nn.a.run.a
    docker compose up
    ```
 
-1. Go to <http://localhost:8501> in your browser.
+1. Go to <http://localhost:8501> for the front end or <http://localhost:8000/docs> for the back end API.
 
 ### With Poetry
 
