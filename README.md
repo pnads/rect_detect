@@ -1,5 +1,7 @@
 # RectDetect
 
+Running live in Google Cloud [here](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)!
+
 ## Setup and Run
 
 ### With Docker
