@@ -5,6 +5,10 @@ See it running live in Google Cloud:
 - [Streamlit App](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)
 - [Swagger API](https://rect-detect-api-zjjnoqowna-nn.a.run.app/docs)
 
+<hr />
+<img width="100%" alt="RectDetect running on GCP!" src="https://github.com/pnads/rect_detect/assets/20482774/fc6c7235-78a5-4efc-a32a-55fc7fc35afa">
+<hr />
+
 ## Setup and Run Locally
 
 ### With Docker
