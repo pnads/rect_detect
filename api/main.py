@@ -50,10 +50,13 @@ def find_vertices(image_array: NDArray[uint8]) -> list[dict]:
 
 
 def is_rectangle(approx_contour):
+    """Utility function to check if an approximate contour has 4 vertices."""
     return len(approx_contour) == 4
 
 
 def is_bounding_box(image, contour):
+    """Utility function to check if the input contour is actually the bounding box for the image,
+    so it can be excluded."""
     image_perimeter = (image.shape[0] + image.shape[1] - 2) * 2
     contour_perimeter = cv2.arcLength(contour, True)
     return int(image_perimeter) == int(contour_perimeter)

@@ -24,6 +24,7 @@ scikit-image = "^0.22.0"
 pytest = "^7.4.4"
 pytest-cov = "^4.1.0"
 black = "^23.12.1"
+httpx = "^0.26.0"
 
 [build-system]
 requires = ["poetry-core"]

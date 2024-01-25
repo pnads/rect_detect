@@ -5,9 +5,11 @@ See it running live in Google Cloud:
 - [Streamlit App](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)
 - [Swagger API](https://rect-detect-api-zjjnoqowna-nn.a.run.app/docs)
 
-<hr />
-<img width="100%" alt="RectDetect running on GCP!" src="https://github.com/pnads/rect_detect/assets/20482774/fc6c7235-78a5-4efc-a32a-55fc7fc35afa">
-<hr />
+---
+
+![RectDetect running on GCP!](https://github.com/pnads/rect_detect/assets/20482774/fc6c7235-78a5-4efc-a32a-55fc7fc35afa)
+
+---
 
 ## Setup and Run Locally
 
@@ -68,3 +70,39 @@ See it running live in Google Cloud:
    ```
 
 1. Go to <http://localhost:8501> in your browser.
+
+## Build and Deploy to GCP
+
+Some general notes on building/deploying containers using the `gcloud` CLI. The build and deploy steps are performed separately for the API and the UI.
+
+1. Install the Google Cloud SDK: <https://cloud.google.com/sdk/docs/install>
+
+1. Authenticate with Google Cloud: `gcloud auth login`
+
+1. Initialize project: `gcloud init`
+
+1. Build the containers:
+
+   ```bash
+   gcloud builds submit --tag gcr.io/PROJECT_ID/rect-detect-api
+   ```
+
+   and
+
+   ```bash
+   gcloud builds submit --tag gcr.io/PROJECT_ID/rect-detect-ui
+   ```
+
+1. Deploy via Cloud Run:
+
+   ```bash
+   gcloud run deploy rect-detect-api --image gcr.io/PROJECT_ID/rect-detect-api --port 8000 --platform managed --allow-unauthenticated
+   ```
+
+   and
+
+   ```bash
+   gcloud run deploy rect-detect-ui --image gcr.io/PROJECT_ID/rect-detect-ui --port 8501 --platform managed --allow-unauthenticated
+   ```
+
+   **NOTE:** `--allow-unauthenticated` creates a publicly accessible service.
