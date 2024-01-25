@@ -1,11 +1,11 @@
 # RectDetect
 
-Running live in Google Cloud:
+See it running live in Google Cloud:
 
-- [Streamlit UI](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)
-- [API](https://rect-detect-api-zjjnoqowna-nn.a.run.app/docs)
+- [Streamlit App](https://rect-detect-ui-zjjnoqowna-nn.a.run.app)
+- [Swagger API](https://rect-detect-api-zjjnoqowna-nn.a.run.app/docs)
 
-## Setup and Run
+## Setup and Run Locally
 
 ### With Docker
 
